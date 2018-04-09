@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!--
+クエリストリング（簡易素因数分解)
+クエリストリングを利用して数値を受け取り，その値について，以下の仕様を満たす簡易的な素因数分解を行うロジックを記述してください。
+
+■表示例 
+例１「 84 = 2 * 2 * 3 * 7 」 
+例２「396 = 2 * 2 * 3 * 3 あまり 11 」 
+例３「997 = あまり 997 」 
+
+■説明 
+・例１にあるように，原則，すべての素数を列挙し，元の値とともに画面表示してください。 
+・例２にあるように，求める素因数は，１桁のもののみとします。このとき，分解しきれなかった数については，「あまり○」の要領で表示させてください。 
+・例３にあるように，対象とする数が素数の場合に，特別な処理を記述する必要はありません。ただし，「この数は素数です」といった表示を行っても構いません。
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <form action="./soinsu.jsp" method="post">
+            <p>数値を入力<input type="text" name="num"></p>
+            
+            <p><input type="submit" name="submit" value="送信"> </p>
+</form>
+    </body>
+</html>
