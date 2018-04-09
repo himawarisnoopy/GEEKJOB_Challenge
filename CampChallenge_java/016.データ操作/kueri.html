@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!--
+クエリストリングの利用
+
+以下のような形式のクエリストリングを受け取り，その値に応じた処理を行う記述を記載してください。 
+
+■クエリストリング 
+例）http://localhost:8080/_some_project_/_some_file_.jsp?total=1500&count=10&type=2 
+・_some_project_ ... 自身のプロジェクト名に書き換えてください 
+・_some_file_.jsp ... 自身で作成したファイル名等に書き換えてください（ JSP ではなくサーブレットによって処理を記述しても構いません） 
+・total ... 購入した商品の総額を表す 
+・count ... 購入した商品の数量を表す 
+・type ... 商品種別を表す 
+（type の数値は， 1 が「雑貨」，2 が「生鮮食品」， 3 が「その他」と対応します） 
+
+■処理内容 
+1. type の値を元に，商品種別の日本語情報を表示してください。 
+2. 商品の単価を求め，画面に表示してください。 
+3. 商品購入総額に応じてポイントを計算し，その値を画面に表示してください。なお，ポイントの計算は，商品購入総額を基準にして，以下の要領で行います。 
+3000 円未満 ... 0% 
+3000 円以上で5000円未満 ... 購入総額の 4% 
+5000 円以上 ... 購入総額の 5%
+-->
+<html>
+    <head>
+        <title>クエリストリング</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <form action="./kueri.jsp" method="post">
+            <p>総額<input type="text" name="total"></p>
+            <p>数量<input type="text" name="count"></p>
+            <p>商品種別<input type="text" name="type"></p>
+            
+            <p><input type="submit" name="submit" value="送信"> </p>
+</form>
+    </body>
+</html>
