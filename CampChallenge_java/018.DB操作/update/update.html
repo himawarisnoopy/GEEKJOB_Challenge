@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <form method="post" action="update">
+            <p>
+                <label for="profilesID">更新するID：</label>
+                <input id="profilesID" name="profilesID" type="number" required>
+            </p>
+            <p>
+                <label for="name">名前：</label>
+                <input id="name" name="name" type="text" required>
+            </p>
+            <p>
+                <label for="tell">電話: </label>
+                <input id="tell" name="tel" type="tel" required>
+            </p>
+            <p>
+                <label for="age">年齢: </label>
+                <input id="age" name="age" type="number" min="15" required>
+            </p>
+            <p>
+                <label for="birthday">誕生日: </label>
+                <input id="birthday" name="birthday" type="date" required>
+            </p>
+            <p><input type="submit" value="更新"></p>
+        </form>
+    </body>
+</html>
