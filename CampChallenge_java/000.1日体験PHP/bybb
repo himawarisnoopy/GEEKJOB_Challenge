@@ -1,0 +1,7 @@
+<?php
+ $time_start = microtime(true);
+
+// 計測したい処
+ $time = microtime(true) - $time_start;
+ echo "{$time} 秒";
+?>
