@@ -1,6 +1,8 @@
 package jums;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 
 /**
  * 画面系の処理や表示を簡略化するためのヘルパークラス。定数なども保存されます
@@ -71,4 +73,27 @@ public class JumsHelper {
         }
         return "";
     }
+    
+    //年だけを返すメソッド
+    public int getYear(Date date) {
+            Calendar c = Calendar.getInstance();
+            c.setTime(date);
+
+            return c.get(Calendar.YEAR);
+    }
+    //月だけを返すメソッド
+    public int getMonth(Date date) {
+            Calendar calendar = Calendar.getInstance();
+            calendar.setTime(date);
+
+            return calendar.get(Calendar.MONTH) + 1;
+    }
+    //日だけを返すメソッド
+    public int getDate(Date date) {
+            Calendar calendar = Calendar.getInstance();
+            calendar.setTime(date);
+
+            return calendar.get(Calendar.DATE);
+    }
+    
 }

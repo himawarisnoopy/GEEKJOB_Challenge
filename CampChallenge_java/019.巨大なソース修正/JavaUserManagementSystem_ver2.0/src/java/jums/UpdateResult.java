@@ -27,19 +27,37 @@ public class UpdateResult extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         try {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet UpdateResult</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet UpdateResult at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-        } finally {
-            out.close();
-        }
+            //リクエストパラメータの文字コードをUTF-8
+            request.setCharacterEncoding("UTF-8");
+            
+            //フォームからの入力を取得し、JavaBeansに格納
+            UserDataBeans udb = new UserDataBeans();
+            udb.setName(request.getParameter("name"));
+            udb.setYear(request.getParameter("year"));
+            udb.setMonth(request.getParameter("month"));
+            udb.setDay(request.getParameter("day"));
+            udb.setType(request.getParameter("type"));
+            udb.setTell(request.getParameter("tell"));
+            udb.setComment(request.getParameter("comment"));
+            
+            //DTOオブジェクトにマッピング。DB専用のパラメータに変換
+            UserDataDTO userdata = new UserDataDTO();
+            udb.UD2DTOMapping(userdata);
+            userdata.setUserID(Integer.parseInt(request.getParameter("id")));
+            
+            //DBへデータの挿入
+            UserDataDAO.getInstance().update(userdata);
+            
+            //結果画面での表示用に入力パラメータ―をリクエストパラメータとして保持
+            request.setAttribute("udb", udb);
+            
+            request.getRequestDispatcher("/updateresult.jsp").forward(request, response);
+            
+        }catch(Exception e){
+            //何らかの理由で失敗したらエラーページにエラー文を渡して表示。想定は不正なアクセスとDBエラー
+            request.setAttribute("error", e.getMessage());
+            request.getRequestDispatcher("/error.jsp").forward(request, response);
+        }        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

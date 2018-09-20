@@ -1,6 +1,11 @@
+<%@page import="jums.UserDataBeans"%>
 <%@page import="jums.JumsHelper" %>
 <%
     JumsHelper jh = JumsHelper.getInstance();
+    
+    //再入力される処理
+    UserDataBeans udb = (UserDataBeans)request.getAttribute("udb");
+    int id = (Integer)request.getAttribute("id");
 %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -11,27 +16,32 @@
     </head>
     <body>
     <form action="UpdateResult" method="POST">
+        
+        <!idはhiddenで>
+        <input type="hidden" name="id" value="<%= id %>">
+        
         名前:
-        <input type="text" name="name" value="">
+        <input type="text" name="name" value="<%=udb.getName()%>">
         <br><br>
 
         生年月日:　
         <select name="year">
             <option value="">----</option>
             <% for(int i=1950; i<=2010; i++){ %>
-            <option value="<%=i%>" ><%=i%></option>
+            <!--再入力の処理(if文)-->
+            <option value="<%=i%>"<% if(udb.getYear()==i) { out.print("selected"); } %> ><%=i%></option>
             <% } %>
         </select>年
         <select name="month">
             <option value="">--</option>
             <% for(int i = 1; i<=12; i++){ %>
-            <option value="<%=i%>" ></option>
+            <option value="<%=i%>"<% if(udb.getMonth()==i) { out.print("selected"); } %> ></option>
             <% } %>
         </select>月
         <select name="day">
             <option value="">--</option>
             <% for(int i = 1; i<=31; i++){ %>
-            <option value="<%=i%>"><%=i%></option>
+            <option value="<%=i%>"<% if(udb.getDay()==i) { out.print("selected"); } %>><%=i%></option>
             <% } %>
         </select>日
         <br><br>
@@ -39,17 +49,17 @@
         種別:
         <br>
             <% for(int i = 1; i<=3; i++){ %>
-            <input type="radio" name="type" value="<%=i%>"><%=jh.exTypenum(i)%><br>
+            <input type="radio" name="type" value="<%=i%>"<% if(udb.getType() == i) { out.print("checked"); } %>><%=jh.exTypenum(i)%><br>
             <% } %>
         <br>
 
         電話番号:
-        <input type="text" name="tell" value="">
+        <input type="text" name="tell" value="<%= udb.getTell() %>">
         <br><br>
 
         自己紹介文
         <br>
-        <textarea name="comment" rows=10 cols=50 style="resize:none" wrap="hard"></textarea><br><br>
+        <textarea name="comment" rows=10 cols=50 style="resize:none" wrap="hard"><%= udb.getComment() %></textarea><br><br>
         
         <input type="submit" name="btnSubmit" value="確認画面へ">
     </form>

@@ -1,16 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app version="3.0" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
+<web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
     <servlet>
-        <servlet-name>insert</servlet-name>
+        <servlet-name>Delete</servlet-name>
+        <servlet-class>jums.Delete</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Insert</servlet-name>
         <servlet-class>jums.Insert</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>insertconfirm</servlet-name>
+        <servlet-name>InsertConfirm</servlet-name>
         <servlet-class>jums.InsertConfirm</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>insertresult</servlet-name>
+        <servlet-name>InsertResult</servlet-name>
         <servlet-class>jums.InsertResult</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>JumsHelper</servlet-name>
+        <servlet-class>jums.JumsHelper</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ResultDetail</servlet-name>
+        <servlet-class>jums.ResultDetail</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>Search</servlet-name>
@@ -21,10 +33,6 @@
         <servlet-class>jums.SearchResult</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>ResultDetail</servlet-name>
-        <servlet-class>jums.ResultDetail</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>Update</servlet-name>
         <servlet-class>jums.Update</servlet-class>
     </servlet>
@@ -33,24 +41,44 @@
         <servlet-class>jums.UpdateResult</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>Delete</servlet-name>
-        <servlet-class>jums.Delete</servlet-class>
+        <servlet-name>UserDataBeans</servlet-name>
+        <servlet-class>jums.UserDataBeans</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UserDataDAO</servlet-name>
+        <servlet-class>jums.UserDataDAO</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UserDataDTO</servlet-name>
+        <servlet-class>jums.UserDataDTO</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>DeleteResult</servlet-name>
         <servlet-class>jums.DeleteResult</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>insert</servlet-name>
-        <url-pattern>/insert</url-pattern>
+        <servlet-name>Delete</servlet-name>
+        <url-pattern>/Delete</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>insertconfirm</servlet-name>
-        <url-pattern>/insertconfirm</url-pattern>
+        <servlet-name>Insert</servlet-name>
+        <url-pattern>/Insert</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>insertresult</servlet-name>
-        <url-pattern>/insertresult</url-pattern>
+        <servlet-name>InsertConfirm</servlet-name>
+        <url-pattern>/InsertConfirm</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>InsertResult</servlet-name>
+        <url-pattern>/InsertResult</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>JumsHelper</servlet-name>
+        <url-pattern>/JumsHelper</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ResultDetail</servlet-name>
+        <url-pattern>/ResultDetail</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>Search</servlet-name>
@@ -61,10 +89,6 @@
         <url-pattern>/SearchResult</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>ResultDetail</servlet-name>
-        <url-pattern>/ResultDetail</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
         <servlet-name>Update</servlet-name>
         <url-pattern>/Update</url-pattern>
     </servlet-mapping>
@@ -73,8 +97,16 @@
         <url-pattern>/UpdateResult</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>Delete</servlet-name>
-        <url-pattern>/Delete</url-pattern>
+        <servlet-name>UserDataBeans</servlet-name>
+        <url-pattern>/UserDataBeans</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UserDataDAO</servlet-name>
+        <url-pattern>/UserDataDAO</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UserDataDTO</servlet-name>
+        <url-pattern>/UserDataDTO</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>DeleteResult</servlet-name>

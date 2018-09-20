@@ -20,7 +20,7 @@
         <title>JUMS登録画面</title>
     </head>
     <body>
-    <form action="insertconfirm" method="POST">
+    <form action="InsertConfirm" method="POST">
         名前:
         <input type="text" name="name" value="<% if(reinput){out.print(udb.getName());}%>">
         <br><br>

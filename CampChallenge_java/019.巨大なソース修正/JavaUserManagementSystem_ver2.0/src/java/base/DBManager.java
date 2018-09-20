@@ -1,18 +1,24 @@
-package base;
-/**
- *
- * @author hayashi-s
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
  */
+package base;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+
+/**
+ *
+ * @author kawas
+ */
 public class DBManager {
     public static Connection getConnection(){
         Connection con = null;
         try{
             Class.forName("com.mysql.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/challenge_db","root","");
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/GEEKJOB_db","KAWASAKI","1028");
             System.out.println("DBConnected!!");
             return con;
         }catch(ClassNotFoundException e){
@@ -21,4 +27,5 @@ public class DBManager {
             throw new IllegalMonitorStateException();
         }
     }
+    
 }

@@ -1,8 +1,11 @@
+<%@page import="java.util.ArrayList"%>
 <%@page import="jums.JumsHelper"
         import="jums.UserDataDTO" %>
 <%
     JumsHelper jh = JumsHelper.getInstance();
-    UserDataDTO udd = (UserDataDTO)request.getAttribute("resultData");
+    //UserDataDTOからArrayList<UserDataDTO>
+    
+    ArrayList<UserDataDTO> result = (ArrayList)request.getAttribute("resultData");
 %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -20,12 +23,16 @@
                 <th>種別</th>
                 <th>登録日時</th>
             </tr>
+             <% for (int i=0; i<result.size(); i++) {
+                UserDataDTO udd = result.get(i); %>
             <tr>
                 <td><a href="ResultDetail?id=<%= udd.getUserID()%>"><%= udd.getName()%></a></td>
                 <td><%= udd.getBirthday()%></td>
-                <td><%= udd.getType()%></td>
+                <td><!--種別を日本語表示(ジャムズヘルパークラスのメソッド)-->
+                    <%=jh.exTypenum(udd.getType())%></td>
                 <td><%= udd.getNewDate()%></td>
             </tr>
+            <% } %>
         </table>
     </body>
     <%=jh.home()%>
